@@ -16,9 +16,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:generate-output": "jest --json --outputFile=.jest-test-results.json || true",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "storybook-dev":"npm-run-all --continue-on-error --sequential test:generate-output storybook"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -28,6 +30,7 @@
     "@babel/core": "^7.13.16",
     "@storybook/addon-actions": "^6.3.0",
     "@storybook/addon-essentials": "^6.3.0",
+    "@storybook/addon-jest": "^6.3.6",
     "@storybook/addon-links": "^6.3.0",
     "@storybook/addon-storyshots": "^6.3.6",
     "@storybook/vue3": "^6.3.0",
@@ -42,6 +45,7 @@
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
     "jest-vue-preprocessor": "^1.7.1",
+    "npm-run-all": "^4.1.5",
     "typescript": "~3.9.3",
     "vue-jest": "^5.0.0-0",
     "vue-loader": "^16.2.0"

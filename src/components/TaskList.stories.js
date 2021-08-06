@@ -2,10 +2,14 @@ import TaskList from './TaskList.vue';
 
 import * as TaskStories from './Task.stories';
 
+import { withTests } from '@storybook/addon-jest';
+
+import results from '../../.jest-test-results.json';
+
 export default {
   component: TaskList,
   title: 'TaskList',
-  decorators: [() => ({ template: '<div style="margin: 3em;"><story/></div>' })],
+  decorators: [() => ({ template: '<div style="margin: 3em;"><story/></div>' }),withTests({results})],
   argTypes: {
     onPinTask: {},
     onArchiveTask: {},
